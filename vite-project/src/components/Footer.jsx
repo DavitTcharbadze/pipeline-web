@@ -1,47 +1,52 @@
+import { Link } from 'react-router-dom';
 import classes from '../modules/Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={classes['footer']}>
+    <footer className={classes.footer}>
       <div className={classes['footer-container']}>
-        <div>
+
+        <div className={classes.column}>
           <h3>Via pipeline</h3>
           <p>
-            Pipeline, a consulting firm specializing in networks and server installations, was founded in 1993 by Roman Fäckl.
-            We handle all tasks related to data systems and networks, from installation to end-user support.
+            Pipeline, a consulting firm specializing in networks and server installations,
+            was founded in 1993 by Roman Fäckl. We handle all tasks related to data
+            systems and networks, from installation to end-user support.
           </p>
         </div>
 
-        <div>
+        <div className={classes.column}>
           <h3>Solutions</h3>
-          <ul>
-            <li>Network design and optimization</li>
-            <li>Advice and service</li>
-            <li>Hardware and software sales</li>
-            <li>Security concepts</li>
-            <li>Cloud Solutions</li>
-          </ul>
+
+          <Link to="/solutions/network-design">Network design and optimization</Link>
+          <Link to="/solutions/advice-service">Advice and service</Link>
+          <Link to="/solutions/hardware-software">Hardware and software sales</Link>
+          <Link to="/solutions/security">Security concepts</Link>
+          <Link to="/solutions/cloud">Cloud Solutions</Link>
         </div>
 
-        <div>
+        <div className={classes.column}>
           <h3>Your contact</h3>
           <p>
             Pipeline DV-Beratung GmbH<br />
             Aschauer Straße 30<br />
-            D-81549 Munich
+            D-81549 Munich<br />
+            tel +49 89 6244740<br />
+            mail info@pipeline.gmbh
           </p>
-          <p>tel +49 89 6244740</p>
-          <p>mail info@pipeline.gmbh</p>
         </div>
 
-        <div>
+        <div className={classes.column}>
           <h3>Legal</h3>
-          <ul>
-            <li>imprint</li>
-            <li>Data protection</li>
-          </ul>
-          <p>Copyright 2022 Pipeline DV-Beratung GmbH</p>
+
+          <Link to="/imprint">Imprint</Link>
+          <Link to="/data-protection">Data protection</Link>
+
+          <span className={classes.copy}>
+            © Pipeline DV-Beratung GmbH
+          </span>
         </div>
+
       </div>
     </footer>
   );

@@ -87,6 +87,14 @@ function App() {
         <Route path="/partners" element={<Partners />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/solutions/network-design" element={<Solutions />} />
+        <Route path="/solutions/advice-service" element={<Solutions />} />
+        <Route path="/solutions/hardware-software" element={<Solutions />} />
+        <Route path="/solutions/security" element={<Solutions />} />
+        <Route path="/solutions/cloud" element={<Solutions />} />
+
+        <Route path="/imprint" element={<div>Imprint page</div>} />
+        <Route path="/data-protection" element={<div>Data protection page</div>} />
       </Routes>
 
       <button

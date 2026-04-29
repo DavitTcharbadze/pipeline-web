@@ -118,22 +118,52 @@ const Home = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
           >
-            <div className={classes['panel-card']}>
-              <span>01</span>
-              <h3>Independent consulting</h3>
-              <p>Vendor-neutral advice focused on the right solution for your infrastructure.</p>
+            <div className={classes['panel-orbit']}>
+              <span className={classes['node']}></span>
+              <span className={classes['node']}></span>
+              <span className={classes['node']}></span>
             </div>
 
-            <div className={classes['panel-card']}>
-              <span>02</span>
-              <h3>Secure systems</h3>
-              <p>Reliable network and security concepts for daily business operations.</p>
+            <div className={classes['system-card']}>
+              <div className={classes['system-header']}>
+                <span>Infrastructure overview</span>
+                <strong>Online</strong>
+              </div>
+
+              <div className={classes['system-row']}>
+                <span>Network security</span>
+                <div><i></i></div>
+              </div>
+
+              <div className={classes['system-row']}>
+                <span>Cloud services</span>
+                <div><i></i></div>
+              </div>
+
+              <div className={classes['system-row']}>
+                <span>End-user support</span>
+                <div><i></i></div>
+              </div>
             </div>
 
-            <div className={classes['panel-card']}>
-              <span>03</span>
-              <h3>Long-term support</h3>
-              <p>From planning to maintenance, we support your IT throughout its lifecycle.</p>
+            <div className={classes['mini-grid']}>
+              <div className={classes['mini-card']}>
+                <span>01</span>
+                <h3>Consulting</h3>
+                <p>Vendor-neutral IT advice.</p>
+              </div>
+
+              <div className={classes['mini-card']}>
+                <span>02</span>
+                <h3>Security</h3>
+                <p>Stable and protected systems.</p>
+              </div>
+
+              <div className={classes['mini-card']}>
+                <span>03</span>
+                <h3>Support</h3>
+                <p>Long-term daily assistance.</p>
+              </div>
             </div>
           </motion.div>
 
@@ -144,19 +174,31 @@ const Home = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
           >
-            <h2>Pipeline operates holistically and independently of manufacturers.</h2>
+            <span className={classes['section-label']}>How Pipeline works</span>
+
+            <h2>Holistic IT solutions, built independently of manufacturers.</h2>
 
             <p>
-              Computers, versatile software, and networked data systems facilitate modern communication.
-              At Pipeline, we ensure that applications and sensitive networks function smoothly and support you in your daily work.
-              Pipeline offers you complete solutions from a reliable source: consulting, networks, and support.
+              Pipeline supports companies with reliable infrastructure, secure networks,
+              cloud services, hardware, software, and long-term IT support.
             </p>
 
-            <p>
-              Reliable hardware and software are the building blocks of a high-performance IT infrastructure.
-              As a Pipeline sales partner, personal, comprehensive, and expert support is our top priority.
-              As a business customer, you can flexibly structure your financing through direct purchase or a leasing agreement.
-            </p>
+            <div className={classes['info-points']}>
+              <div>
+                <strong>Complete solutions</strong>
+                <span>From consulting and planning to installation and support.</span>
+              </div>
+
+              <div>
+                <strong>Independent advice</strong>
+                <span>Vendor-neutral decisions based on what your business needs.</span>
+              </div>
+
+              <div>
+                <strong>Reliable operation</strong>
+                <span>Stable systems that keep daily work running smoothly.</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
