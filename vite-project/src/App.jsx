@@ -1,30 +1,36 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { translations } from './data/translations';
 
 import classes from './modules/App.module.scss';
 import logo from './assets/logo.png';
+import gbFlag from './assets/flags/gb.svg';
+import deFlag from './assets/flags/de.svg';
 
+import Home from './components/Home';
 import Solutions from './components/Solutions';
 import Partners from './components/Partners';
 import Customers from './components/Customers';
 import Contact from './components/Contact';
-import Home from './components/Home'
 import Footer from './components/Footer';
-
+import ScrollToTop from './components/ScrollToTop';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
+  const [language, setLanguage] = useState('en');
+
+  const t = translations[language];
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      const trigger = document.getElementById('via-pipeline');
-
-      if (trigger) {
-        const top = trigger.getBoundingClientRect().top;
-        setShowTop(top <= 0);
-      }
+      setShowTop(window.scrollY > 500);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -32,15 +38,17 @@ function App() {
 
   return (
     <div className={classes['main-wrapper']}>
-      <nav className={`${classes.navbar} ${menuOpen ? classes.open : ''}`}>
+      <ScrollToTop />
+      <nav className={`${classes['navbar']} ${menuOpen ? classes['open'] : ''}`}>
         <div className={classes['navbar-container']}>
-          <Link to="/" className={classes['navbar-brand']}>
-            <img src={logo} alt="Company Logo" className={classes['logo']} />
+          <Link to="/" className={classes['navbar-brand']} onClick={closeMenu}>
+            <img src={logo} alt="Pipeline Logo" className={classes['logo']} />
           </Link>
+
           <button
             className={classes['navbar-toggler']}
             aria-label="Toggle navigation"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
             <span className={classes['navbar-toggler-icon']}></span>
           </button>
@@ -48,63 +56,80 @@ function App() {
           <div className={classes['navbar-collapse']}>
             <ul className={classes['navbar-nav']}>
               <li className={classes['nav-item']}>
-                <Link to="/" className={classes['nav-link']}>Home</Link>
+                <Link to="/" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.home}
+                </Link>
               </li>
 
               <li className={classes['nav-item']}>
-                <Link to="/solutions" className={classes['nav-link']}>Solutions</Link>
+                <Link to="/solutions" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.solutions}
+                </Link>
 
                 <ul className={classes['dropdown-menu']}>
-                  <li><Link to="/solutions/network-design">Network design and optimization</Link></li>
-                  <li><Link to="/solutions/advice-service">Advice and service</Link></li>
-                  <li><Link to="/solutions/hardware-software">Hardware and software sales</Link></li>
-                  <li><Link to="/solutions/security">Security concepts</Link></li>
-                  <li><Link to="/solutions/cloud">Cloud Solutions</Link></li>
-                  <li><Link to="/solutions/leasing">Leasing of hardware and software</Link></li>
-                  <li><Link to="/solutions/pipeline-support">Pipeline Quick Support</Link></li>
+                  <li><Link to="/solutions#network-design" onClick={closeMenu}>{t.solutions.network}</Link></li>
+                  <li><Link to="/solutions#advice-service" onClick={closeMenu}>{t.solutions.advice}</Link></li>
+                  <li><Link to="/solutions#hardware-software" onClick={closeMenu}>{t.solutions.hardware}</Link></li>
+                  <li><Link to="/solutions#security" onClick={closeMenu}>{t.solutions.security}</Link></li>
+                  <li><Link to="/solutions#cloud" onClick={closeMenu}>{t.solutions.cloud}</Link></li>
+                  <li><Link to="/solutions#leasing" onClick={closeMenu}>{t.solutions.leasing}</Link></li>
+                  <li><Link to="/solutions#pipeline-support" onClick={closeMenu}>{t.solutions.support}</Link></li>
                 </ul>
               </li>
 
               <li className={classes['nav-item']}>
-                <Link to="/partners" className={classes['nav-link']}>Partners</Link>
+                <Link to="/partners" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.partners}
+                </Link>
               </li>
 
               <li className={classes['nav-item']}>
-                <Link to="/customers" className={classes['nav-link']}>Customers</Link>
+                <Link to="/customers" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.customers}
+                </Link>
               </li>
 
               <li className={classes['nav-item']}>
-                <Link to="/contact" className={classes['nav-link']}>Contact</Link>
+                <Link to="/contact" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.contact}
+                </Link>
               </li>
             </ul>
+
+            <button
+              className={classes['language-switch']}
+              onClick={() => setLanguage((prev) => (prev === 'en' ? 'de' : 'en'))}
+              aria-label="Switch language"
+            >
+              <img
+                src={language === 'en' ? gbFlag : deFlag}
+                alt={language === 'en' ? 'English' : 'Deutsch'}
+              />
+              <span>{language === 'en' ? 'EN' : 'DE'}</span>
+            </button>
           </div>
         </div>
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/solutions" element={<Solutions />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/customers" element={<Customers />} />
+        <Route path="/" element={<Home t={t} />} />
+        <Route path="/solutions" element={<Solutions t={t} />} />
+        <Route path="/partners" element={<Partners t={t} />} />
+        <Route path="/customers" element={<Customers t={t} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/solutions/network-design" element={<Solutions />} />
-        <Route path="/solutions/advice-service" element={<Solutions />} />
-        <Route path="/solutions/hardware-software" element={<Solutions />} />
-        <Route path="/solutions/security" element={<Solutions />} />
-        <Route path="/solutions/cloud" element={<Solutions />} />
-
-        <Route path="/imprint" element={<div>Imprint page</div>} />
-        <Route path="/data-protection" element={<div>Data protection page</div>} />
+        <Route path="/imprint" element={<div className={classes['placeholder-page']}>Imprint page</div>} />
+        <Route path="/data-protection" element={<div className={classes['placeholder-page']}>Data protection page</div>} />
       </Routes>
 
       <button
         className={`${classes['back-to-top']} ${showTop ? classes['show'] : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
       >
         ↑
       </button>
 
-      <Footer />
+      <Footer t={t} />
     </div>
   );
 }

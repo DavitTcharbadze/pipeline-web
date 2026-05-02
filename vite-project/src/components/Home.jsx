@@ -1,32 +1,31 @@
 import { motion } from 'framer-motion';
 import { Server, PackageCheck, MonitorSmartphone, Cloud } from 'lucide-react';
-
 import classes from '../modules/Home.module.scss';
 
-const cards = [
-  {
-    title: 'SERVICES',
-    icon: Server,
-    text: 'Computers, versatile software, and networked data systems facilitate modern communication. At Pipeline, we ensure that applications and sensitive networks function smoothly and support you in your daily work.'
-  },
-  {
-    title: 'PRODUCTS',
-    icon: PackageCheck,
-    text: 'Reliable hardware and software are the building blocks of a high-performance IT infrastructure. As a Pipeline sales partner, personal, comprehensive, and expert support is our top priority.'
-  },
-  {
-    title: 'MEDIA SOLUTIONS',
-    icon: MonitorSmartphone,
-    text: 'Have you moved? Do you need the latest media technology? We provide individualized support and advice, offering customized solutions and continued support after installation.'
-  },
-  {
-    title: 'CLOUD SOLUTIONS',
-    icon: Cloud,
-    text: 'Intelligent cloud solutions allow you to save costs and resources, simplify workflows, and maximize flexibility. We assist with data migration and cloud transitions.'
-  }
-];
+const Home = ({ t }) => {
+  const cards = [
+    {
+      title: t.cards.services.title,
+      icon: Server,
+      text: t.cards.services.text,
+    },
+    {
+      title: t.cards.products.title,
+      icon: PackageCheck,
+      text: t.cards.products.text,
+    },
+    {
+      title: t.cards.media.title,
+      icon: MonitorSmartphone,
+      text: t.cards.media.text,
+    },
+    {
+      title: t.cards.cloud.title,
+      icon: Cloud,
+      text: t.cards.cloud.text,
+    },
+  ];
 
-const Home = () => {
   return (
     <>
       <section className={classes['hero']}>
@@ -38,32 +37,26 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: 'easeOut' }}
         >
-          <span className={classes['eyebrow']}>
-            IT Infrastructure • Security • Support
-          </span>
-
-          <h1>Comprehensive and customized IT solutions</h1>
-
-          <p>
-            We provide expert advice and create complete IT solutions from a reliable source.
-          </p>
+          <span className={classes['eyebrow']}>{t.hero.eyebrow}</span>
+          <h1>{t.hero.title}</h1>
+          <p>{t.hero.text}</p>
 
           <a href="#via-pipeline" className={classes['hero-link']}>
-            Explore services
+            {t.hero.button}
           </a>
         </motion.div>
       </section>
 
       <section className={classes['testimonial-strip']}>
         <div className={classes['testimonial-inner']}>
-          <p>
-            “The support of our IT systems has always been perfect and first-class throughout the many years of cooperation, during which very different tasks often had to be solved.”
-          </p>
-          <span>Lewang Architects</span>
+          <p>{t.testimonial.text}</p>
+          <span>{t.testimonial.author}</span>
         </div>
       </section>
 
       <section id="via-pipeline" className={classes['home']}>
+        <div className={classes['glow-2']}></div>
+
         <div className={classes['container']}>
           <motion.div
             initial={{ opacity: 0, y: 22 }}
@@ -72,15 +65,11 @@ const Home = () => {
             transition={{ duration: 0.5 }}
           >
             <h2 className={classes['title']}>VIA PIPELINE</h2>
-
-            <p className={classes['intro']}>
-              Pipeline, the consulting firm for IT infrastructure, security, service and support, was founded in 1993 by Roman Fäckl.
-              We handle all tasks related to IT and its interfaces for you, from conception and installation to end-user support and the setup and operation of user services.
-            </p>
+            <p className={classes['intro']}>{t.about.text}</p>
           </motion.div>
 
           <div className={classes['grid']}>
-            {cards.map((card, index) => {
+            {cards.map((card) => {
               const Icon = card.icon;
 
               return (
@@ -91,7 +80,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{
                     scale: 1.025,
-                    boxShadow: "0 16px 30px rgba(11, 77, 162, 0.15)"
+                    boxShadow: '0 16px 30px rgba(11, 77, 162, 0.15)',
                   }}
                   viewport={{ once: true, amount: 0.25 }}
                   transition={{ duration: 0.1 }}
@@ -110,6 +99,8 @@ const Home = () => {
       </section>
 
       <section className={classes['info-section']}>
+        <div className={classes['glow-2']}></div>
+
         <div className={classes['info-container']}>
           <motion.div
             className={classes['info-panel']}
@@ -126,22 +117,22 @@ const Home = () => {
 
             <div className={classes['system-card']}>
               <div className={classes['system-header']}>
-                <span>Infrastructure overview</span>
-                <strong>Online</strong>
+                <span>{t.panel.overview}</span>
+                <strong>{t.panel.status}</strong>
               </div>
 
               <div className={classes['system-row']}>
-                <span>Network security</span>
+                <span>{t.panel.network}</span>
                 <div><i></i></div>
               </div>
 
               <div className={classes['system-row']}>
-                <span>Cloud services</span>
+                <span>{t.panel.cloud}</span>
                 <div><i></i></div>
               </div>
 
               <div className={classes['system-row']}>
-                <span>End-user support</span>
+                <span>{t.panel.support}</span>
                 <div><i></i></div>
               </div>
             </div>
@@ -149,20 +140,20 @@ const Home = () => {
             <div className={classes['mini-grid']}>
               <div className={classes['mini-card']}>
                 <span>01</span>
-                <h3>Consulting</h3>
-                <p>Vendor-neutral IT advice.</p>
+                <h3>{t.panel.consultingTitle}</h3>
+                <p>{t.panel.consultingText}</p>
               </div>
 
               <div className={classes['mini-card']}>
                 <span>02</span>
-                <h3>Security</h3>
-                <p>Stable and protected systems.</p>
+                <h3>{t.panel.securityTitle}</h3>
+                <p>{t.panel.securityText}</p>
               </div>
 
               <div className={classes['mini-card']}>
                 <span>03</span>
-                <h3>Support</h3>
-                <p>Long-term daily assistance.</p>
+                <h3>{t.panel.supportTitle}</h3>
+                <p>{t.panel.supportText}</p>
               </div>
             </div>
           </motion.div>
@@ -174,29 +165,24 @@ const Home = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
           >
-            <span className={classes['section-label']}>How Pipeline works</span>
-
-            <h2>Holistic IT solutions, built independently of manufacturers.</h2>
-
-            <p>
-              Pipeline supports companies with reliable infrastructure, secure networks,
-              cloud services, hardware, software, and long-term IT support.
-            </p>
+            <span className={classes['section-label']}>{t.info.label}</span>
+            <h2>{t.info.title}</h2>
+            <p>{t.info.text}</p>
 
             <div className={classes['info-points']}>
               <div>
-                <strong>Complete solutions</strong>
-                <span>From consulting and planning to installation and support.</span>
+                <strong>{t.info.points.complete.title}</strong>
+                <span>{t.info.points.complete.text}</span>
               </div>
 
               <div>
-                <strong>Independent advice</strong>
-                <span>Vendor-neutral decisions based on what your business needs.</span>
+                <strong>{t.info.points.independent.title}</strong>
+                <span>{t.info.points.independent.text}</span>
               </div>
 
               <div>
-                <strong>Reliable operation</strong>
-                <span>Stable systems that keep daily work running smoothly.</span>
+                <strong>{t.info.points.reliable.title}</strong>
+                <span>{t.info.points.reliable.text}</span>
               </div>
             </div>
           </motion.div>
