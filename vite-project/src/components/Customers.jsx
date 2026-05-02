@@ -2,23 +2,34 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import classes from '../modules/Customers.module.scss';
 
+// auto-import images
 const customerImages = import.meta.glob('../assets/customers/*.{png,jpg,jpeg,svg,webp}', {
   eager: true,
   import: 'default',
 });
 
+// format name from filename
 const formatName = (path) => {
   const fileName = path.split('/').pop().split('.')[0];
 
   return fileName
     .replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    .replace(/\b\w/g, (l) => l.toUpperCase());
 };
 
-const customers = Object.entries(customerImages).map(([path, img]) => ({
+// existing image customers
+const imageCustomers = Object.entries(customerImages).map(([path, img]) => ({
   name: formatName(path),
   img,
 }));
+
+// 👉 manual customers WITHOUT logos
+const manualCustomers = [
+  { name: 'TECVIA GmbH', img: null },
+];
+
+// combine both
+const customers = [...imageCustomers, ...manualCustomers];
 
 const Customers = ({ t }) => {
   const data = t.customersPage;
@@ -26,6 +37,7 @@ const Customers = ({ t }) => {
   return (
     <section className={classes['customers-page']}>
       <div className={classes['container']}>
+
         <motion.div
           className={classes['header']}
           initial={{ opacity: 0, y: 24 }}
@@ -56,13 +68,23 @@ const Customers = ({ t }) => {
               transition={{ duration: 0.35, delay: i * 0.02 }}
             >
               <div className={classes['logo-wrapper']}>
-                <img src={customer.img} alt={customer.name} />
+
+                {/* ✅ image OR fallback */}
+                {customer.img ? (
+                  <img src={customer.img} alt={customer.name} />
+                ) : (
+                  <div className={classes['fallback-logo']}>
+                    {customer.name}
+                  </div>
+                )}
+
               </div>
 
               <span className={classes['label']}>{customer.name}</span>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -203,6 +203,27 @@ export const translations = {
         afterLink: '.',
       },
     },
+    contact: {
+      title: 'How can we help you? Write to us or give us a call!',
+      intro1: 'We would be happy to advise you in advance and find the right solution for you.',
+      intro2: 'We look forward to hearing from you.',
+      addressTitle: 'Our address:',
+
+      name: 'Your name',
+      email: 'Your email address',
+      phone: 'Your telephone number',
+      message: 'Your message',
+
+      required: 'This field is required.',
+
+      consent:
+        'By submitting the contact form, I agree that my data may be used to process my request.',
+
+      privacy:
+        'Further information and instructions on how to withdraw your consent can be found in the',
+
+      send: 'Send',
+    }
   },
 
   de: {
@@ -409,5 +430,26 @@ export const translations = {
         afterLink: '.',
       },
     },
+    contact: {
+      title: 'Was können wir für Sie tun? Schreiben Sie uns oder rufen Sie an!',
+      intro1: 'Gerne beraten wir Sie im Vorfeld und suchen für Sie die passende Lösung.',
+      intro2: 'Wir freuen uns auf Ihren Kontakt.',
+      addressTitle: 'Unsere Anschrift:',
+
+      name: 'Ihr Name',
+      email: 'Ihre E-Mail-Adresse',
+      phone: 'Ihre Telefonnummer',
+      message: 'Ihre Nachricht',
+
+      required: 'Diese Angabe ist erforderlich.',
+
+      consent:
+        'Mit dem Absenden des Kontaktformulars erkläre ich mich damit einverstanden, dass meine Daten zur Bearbeitung meines Anliegens verwendet werden.',
+
+      privacy:
+        'Weitere Informationen und Widerrufshinweise finden Sie in der',
+
+      send: 'Senden',
+    }
   },
 };

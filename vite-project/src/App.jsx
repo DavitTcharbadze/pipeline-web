@@ -116,7 +116,7 @@ function App() {
         <Route path="/solutions" element={<Solutions t={t} />} />
         <Route path="/partners" element={<Partners t={t} />} />
         <Route path="/customers" element={<Customers t={t} />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<Contact t={t}/>} />
         <Route path="/imprint" element={<div className={classes['placeholder-page']}>Imprint page</div>} />
         <Route path="/data-protection" element={<div className={classes['placeholder-page']}>Data protection page</div>} />
       </Routes>
