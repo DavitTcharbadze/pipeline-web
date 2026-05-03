@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { PhoneCall } from 'lucide-react';
+import { PhoneCall, Mail, MapPin } from 'lucide-react';
 import classes from '../modules/Contact.module.scss';
 
 const Contact = ({ t }) => {
@@ -96,28 +96,46 @@ const Contact = ({ t }) => {
 
   return (
     <section className={classes['contact-page']}>
+
+      <div className={classes['background-orb']}></div>
+
       <div className={classes['container']}>
         <h1 className={classes['title']}>{t.contact.title}</h1>
 
         <div className={classes['content']}>
           <div className={classes['info']}>
-            <p>{t.contact.intro1}</p>
-            <p>{t.contact.intro2}</p>
+            <div className={classes['info-card']}>
+              <p>{t.contact.intro1}</p>
+              <p>{t.contact.intro2}</p>
 
-            <p className={classes['address-title']}>{t.contact.addressTitle}</p>
+              <p className={classes['address-title']}>{t.contact.addressTitle}</p>
 
-            <strong>Pipeline DV-Beratung GmbH</strong>
-            <p>Aschauer Straße 30</p>
-            <p>D-81549 München</p>
+              <strong>Pipeline DV-Beratung GmbH</strong>
 
-            <p>tel <a href="tel:+49896244740">+49 89 6244740</a></p>
-            <p>fax +49 89 62447423</p>
-            <p>mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a></p>
+              <div className={classes['contact-line']}>
+                <MapPin size={17} />
+                <div>
+                  <p>Aschauer Straße 30</p>
+                  <p>D-81549 München</p>
+                </div>
+              </div>
 
-            <a href="tel:+49896244740" className={classes['phone-button']}>
-              <PhoneCall size={18} />
-              Call +49 89 6244740
-            </a>
+              <p>tel <a href="tel:+49896244740">+49 89 6244740</a></p>
+              <p>fax +49 89 62447423</p>
+              <p>mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a></p>
+
+              <div className={classes['quick-actions']}>
+                <a href="tel:+49896244740" className={classes['phone-button']}>
+                  <PhoneCall size={18} />
+                  +49 89 6244740
+                </a>
+
+                <a href="mailto:info@pipeline.gmbh" className={classes['mail-button']}>
+                  <Mail size={18} />
+                  info@pipeline.gmbh
+                </a>
+              </div>
+            </div>
           </div>
 
           <form className={classes['form']} onSubmit={handleSubmit}>
