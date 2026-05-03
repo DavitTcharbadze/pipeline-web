@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const { name, email, phone, message } = req.body;
 
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "Pipeline Website <onboarding@resend.dev>",
       to: "akotcharbadze@gmail.com",
 
       replyTo: email,
