@@ -6,19 +6,18 @@
   display: flex;
   align-items: center;
   background:
-    radial-gradient(circle at 14% 18%, rgba(11, 77, 162, 0.16), transparent 28%),
-    radial-gradient(circle at 88% 18%, rgba(22, 135, 201, 0.16), transparent 30%),
-    linear-gradient(180deg, #ffffff 0%, #eef5fc 100%);
+    linear-gradient(90deg, rgba(3, 9, 22, 0.92) 0%, rgba(5, 14, 31, 0.82) 42%, rgba(5, 14, 31, 0.5) 100%),
+    url('../assets/hero-tech-bg.png') center / cover no-repeat;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
+  box-shadow: inset 0 -90px 120px rgba(2, 8, 18, 0.34);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 211, 207, 0.16), transparent 34%),
+    radial-gradient(circle at 78% 28%, rgba(22, 135, 201, 0.18), transparent 36%);
 }
 
 .hero-container {
@@ -37,20 +36,35 @@
   max-width: 720px;
 
   h1 {
-    color: #0f172a;
-    font-size: clamp(3rem, 5vw, 5.7rem);
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.7rem);
     line-height: 0.96;
     letter-spacing: -0.055em;
     font-weight: 750;
     margin-bottom: 28px;
+    text-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
   }
 
   p {
     max-width: 620px;
-    color: #475569;
+    color: rgba(226, 232, 240, 0.82);
     font-size: 1.16rem;
     line-height: 1.75;
     margin-bottom: 34px;
+  }
+}
+
+.eyebrow {
+  color: #38e3ff;
+}
+
+.hero-link {
+  background: #1687c9;
+  border-color: #1687c9;
+
+  &:hover {
+    background: white;
+    color: #0b4da2;
   }
 }
 
@@ -60,7 +74,7 @@
   display: inline-block;
   margin-bottom: 16px;
   color: #0b4da2;
-  font-size: 0.76rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -268,10 +282,9 @@
 .info-section {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 12% 15%, rgba(15, 23, 42, 0.07), transparent 28%),
-    radial-gradient(circle at 88% 35%, rgba(11, 77, 162, 0.06), transparent 30%),
-    linear-gradient(180deg, #ffffff 0%, #f4f8fd 100%);
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.075) 1px, transparent 1px);
 
   &::before {
     content: '';
@@ -283,7 +296,7 @@
       linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
     background-size: 42px 42px;
-    opacity: 0.7;
+    opacity: 0.9;
   }
 }
 
@@ -323,7 +336,7 @@
   margin-bottom: 56px;
 
   h2 {
-    color: #0f172a;
+    color: white;
     font-size: clamp(2rem, 3.6vw, 3.4rem);
     line-height: 1.02;
     letter-spacing: -0.04em;
@@ -331,7 +344,7 @@
   }
 
   p {
-    color: #475569;
+    color: #b1b1b1;
     line-height: 1.75;
     font-size: 1.03rem;
   }
@@ -401,12 +414,26 @@
   margin-bottom: 24px;
 
   span {
-    color: rgba(15, 23, 42, 0.11);
+    color: rgba(15, 23, 42, 0.32);
+    text-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.25);
+
     font-size: 2.4rem;
-    line-height: 1;
     font-weight: 800;
-    letter-spacing: -0.05em;
   }
+}
+.section-transition {
+  height: 120px;
+  margin-top: -80px;
+  position: relative;
+  z-index: 1;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 8, 18, 0) 0%,
+    rgba(2, 8, 18, 0.55) 45%,
+    rgba(2, 8, 18, 0.9) 100%
+  );
 }
 
 .card-icon {
@@ -429,7 +456,7 @@
 
 .info-content {
   h2 {
-    color: #0f172a;
+    color: white;
     font-size: clamp(2rem, 3.5vw, 3.3rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -437,7 +464,7 @@
   }
 
   p {
-    color: #526071;
+    color: #a1a1a1;
     line-height: 1.75;
     font-size: 1.03rem;
   }
@@ -496,7 +523,9 @@
   }
 }
 
+
 @media (max-width: 950px) {
+
   .hero-container,
   .info-container {
     grid-template-columns: 1fr;
@@ -512,6 +541,34 @@
     min-height: auto;
   }
 
+  .blueprint-bg {
+    opacity: 0.45;
+  }
+
+  .status-card,
+  .mini-terminal {
+    display: none;
+  }
+
+  .blueprint-line {
+    left: 22%;
+  }
+
+  .node-one {
+    right: 12%;
+    top: 14%;
+  }
+
+  .node-two {
+    right: 22%;
+    top: 48%;
+  }
+
+  .node-three {
+    right: 10%;
+    bottom: 18%;
+  }
+
   .service-layout {
     display: flex;
     flex-direction: column;
@@ -523,6 +580,7 @@
   .service-card:nth-child(3),
   .service-card:nth-child(4) {
     grid-column: auto;
+    background: rgba(255, 255, 255, 0.94);
   }
 
   .proof-grid {
@@ -553,5 +611,14 @@
 
   .proof-strip {
     padding: 20px 1.2rem;
+  }
+
+  .blueprint-bg {
+    opacity: 0.28;
+  }
+
+  .blueprint-line,
+  .blueprint-node {
+    display: none;
   }
 }

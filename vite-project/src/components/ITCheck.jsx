@@ -127,7 +127,7 @@ const ITCheck = ({ t }) => {
                   className={classes['result-button']}
                   onClick={() => setContactModalOpen(true)}
                 >
-                  Talk to Pipeline
+                  {data.results.contactButton}
                   <ChevronRight size={18} />
                 </button>
 
@@ -221,28 +221,26 @@ const ITCheck = ({ t }) => {
               <X size={20} />
             </button>
 
-            <span className={classes['modal-kicker']}>Next step</span>
-            <h3>Speak with Pipeline</h3>
-            <p>
-              Send your result by email or call directly. No long form, no waiting room.
-            </p>
+            <span className={classes['modal-kicker']}>{data.modal.kicker}</span>
+            <h3>{data.modal.title}</h3>
+            <p>{data.modal.text}</p>
 
             <div className={classes['modal-actions']}>
               <a href="tel:+49896244740" className={classes['modal-action']}>
                 <PhoneCall size={19} />
                 <div>
-                  <strong>Call now</strong>
+                  <strong>{data.modal.callTitle}</strong>
                   <span>+49 89 6244740</span>
                 </div>
               </a>
 
               <a
-                href={`mailto:info@pipeline.gmbh?subject=IT Check Result&body=Hello Pipeline,%0D%0A%0D%0AMy IT Check score is ${score}/100.%0D%0A%0D%0APlease contact me about possible next steps.`}
+                href={`mailto:info@pipeline.gmbh?subject=${encodeURIComponent(data.modal.emailSubject)}&body=${encodeURIComponent(`${data.modal.emailBodyStart}\n\n${data.modal.emailScoreText} ${score}/100.\n\n${data.modal.emailBodyEnd}`)}`}
                 className={classes['modal-action']}
               >
                 <Mail size={19} />
                 <div>
-                  <strong>Email Pipeline</strong>
+                  <strong>{data.modal.emailTitle}</strong>
                   <span>info@pipeline.gmbh</span>
                 </div>
               </a>

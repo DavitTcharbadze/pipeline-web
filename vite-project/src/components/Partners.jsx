@@ -19,6 +19,7 @@ import veeam from '../assets/partners/veeam.png';
 import vmware from '../assets/partners/vmware.png';
 import vogl from '../assets/partners/vogl.png';
 import watchguard from '../assets/partners/watchguard.png';
+import ParticleField from './ParticleField';
 
 const partners = [
   { name: 'Cisco Systems', img: cisco },
@@ -46,6 +47,8 @@ const Partners = ({ t }) => {
 
   return (
     <section className={classes['partners-page']}>
+      <ParticleField variant="light" opacity={0.32} />
+
       <div className={classes['container']}>
         <motion.div
           className={classes['header']}

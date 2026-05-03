@@ -10,6 +10,7 @@ import {
   BadgeDollarSign,
 } from 'lucide-react';
 import classes from '../modules/Solutions.module.scss';
+import ParticleField from './ParticleField';
 
 const sectionIds = [
   'network-design',
@@ -61,6 +62,7 @@ const Solutions = ({ t }) => {
 
   return (
     <section className={classes['page']}>
+      <ParticleField variant="dark" opacity={0.55} />
       <div className={classes['glow-2']}></div>
 
       <div className={classes['diagram-bg']}>

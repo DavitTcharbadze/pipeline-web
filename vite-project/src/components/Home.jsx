@@ -12,35 +12,21 @@ import {
   Clock3,
 } from 'lucide-react';
 import classes from '../modules/Home.module.scss';
+import ParticleField from './ParticleField';
 
 const Home = ({ t }) => {
   const cards = [
-    {
-      title: t.cards.services.title,
-      icon: Server,
-      text: t.cards.services.text,
-    },
-    {
-      title: t.cards.products.title,
-      icon: PackageCheck,
-      text: t.cards.products.text,
-    },
-    {
-      title: t.cards.media.title,
-      icon: MonitorSmartphone,
-      text: t.cards.media.text,
-    },
-    {
-      title: t.cards.cloud.title,
-      icon: Cloud,
-      text: t.cards.cloud.text,
-    },
+    { title: t.cards.services.title, icon: Server, text: t.cards.services.text },
+    { title: t.cards.products.title, icon: PackageCheck, text: t.cards.products.text },
+    { title: t.cards.media.title, icon: MonitorSmartphone, text: t.cards.media.text },
+    { title: t.cards.cloud.title, icon: Cloud, text: t.cards.cloud.text },
   ];
 
   return (
     <>
       <section className={classes['hero']}>
         <div className={classes['hero-bg']}></div>
+        <ParticleField variant="dark" />
 
         <div className={classes['hero-container']}>
           <motion.div
@@ -82,27 +68,17 @@ const Home = ({ t }) => {
               </div>
 
               <div className={classes['visual-stats']}>
-                <div>
-                  <ShieldCheck size={18} />
-                  <span>Security</span>
-                </div>
-
-                <div>
-                  <Cloud size={18} />
-                  <span>Cloud</span>
-                </div>
-
-                <div>
-                  <Server size={18} />
-                  <span>Support</span>
-                </div>
+                <div><ShieldCheck size={18} /><span>Security</span></div>
+                <div><Cloud size={18} /><span>Cloud</span></div>
+                <div><Server size={18} /><span>Support</span></div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
-
+      <div className={classes['section-transition']}></div>
       <section className={classes['proof-strip']}>
+        <ParticleField variant="dark" />
         <div className={classes['proof-grid']}>
           <div className={classes['proof-item']}>
             <Activity size={20} />
@@ -135,6 +111,7 @@ const Home = ({ t }) => {
       </section>
 
       <section id="via-pipeline" className={classes['home']}>
+        <ParticleField variant="light" opacity={0.26} />
         <div className={classes['glow-2']}></div>
 
         <div className={classes['container']}>
@@ -181,6 +158,7 @@ const Home = ({ t }) => {
       </section>
 
       <section className={classes['info-section']}>
+        <ParticleField variant="light" opacity={0.24} />
         <div className={classes['glow-2']}></div>
 
         <div className={classes['info-container']}>

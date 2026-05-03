@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import classes from '../modules/Customers.module.scss';
+import ParticleField from './ParticleField';
 
 const customerImages = import.meta.glob('../assets/customers/*.{png,jpg,jpeg,svg,webp}', {
   eager: true,
@@ -26,6 +27,8 @@ const Customers = ({ t }) => {
 
   return (
     <section className={classes['customers-page']}>
+      <ParticleField variant="light" opacity={0.32} />
+      
       <div className={classes['container']}>
 
         <motion.div

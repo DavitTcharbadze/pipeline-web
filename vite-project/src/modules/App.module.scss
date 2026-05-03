@@ -16,8 +16,9 @@
   top: 0;
   z-index: 1100;
   width: 100%;
-  background: #050c18;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(18px);
   overflow: visible;
 }
 
@@ -37,25 +38,38 @@
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  padding: 8px 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.navbar-brand:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .logo {
-  height: 78px;
+  height: 96px;
   width: auto;
   object-fit: contain;
-  transform: scale(1.15);
+  transform: scale(1.12);
   transform-origin: left center;
+
   filter:
-    drop-shadow(0 0 12px rgba(20, 140, 255, 0.62))
-    drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+    contrast(1.32)
+    saturate(1.22)
+    drop-shadow(0 3px 8px rgba(11, 77, 162, 0.22));
+
   transition: filter 0.25s ease;
 }
 
 .logo:hover {
   filter:
-    drop-shadow(0 0 18px rgba(20, 140, 255, 0.78))
-    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.48));
+    contrast(1.4)
+    saturate(1.28)
+    drop-shadow(0 4px 11px rgba(11, 77, 162, 0.28));
 }
 
 .navbar-collapse {
@@ -81,7 +95,7 @@
 .nav-link {
   display: inline-block;
   text-decoration: none;
-  color: rgba(226, 232, 240, 0.95);
+  color: #1f2937;
   font-size: 1rem;
   font-weight: 800;
   padding: 10px 2px;
@@ -89,7 +103,7 @@
   transition: color 0.2s ease;
 
   &:hover {
-    color: #ffffff;
+    color: #0b4da2;
   }
 }
 
@@ -143,7 +157,7 @@
   height: 48px;
   border: 1px solid rgba(148, 163, 184, 0.24);
   background: rgba(255, 255, 255, 0.06);
-  color: #e2e8f0;
+  color: black;
   border-radius: 999px;
   padding: 6px 16px 6px 8px;
   cursor: pointer;
@@ -152,6 +166,9 @@
   gap: 9px;
   font-size: 0.85rem;
   font-weight: 900;
+    span {
+    color: #1f2937; // ← ensure text stays dark
+  }
 
   img {
     width: 28px;

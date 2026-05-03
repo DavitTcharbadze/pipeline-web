@@ -20,7 +20,7 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('de');
 
   const location = useLocation();
   const t = translations[language];
