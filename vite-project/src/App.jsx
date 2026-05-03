@@ -9,11 +9,13 @@ import deFlag from './assets/flags/de.svg';
 
 import Home from './components/Home';
 import Solutions from './components/Solutions';
+import ITCheck from './components/ITCheck';
 import Partners from './components/Partners';
 import Customers from './components/Customers';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
@@ -21,14 +23,10 @@ function App() {
 
   const t = translations[language];
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowTop(window.scrollY > 500);
-    };
+    const handleScroll = () => setShowTop(window.scrollY > 500);
 
     handleScroll();
     window.addEventListener('scroll', handleScroll);
@@ -39,6 +37,7 @@ function App() {
   return (
     <div className={classes['main-wrapper']}>
       <ScrollToTop />
+
       <nav className={`${classes['navbar']} ${menuOpen ? classes['open'] : ''}`}>
         <div className={classes['navbar-container']}>
           <Link to="/" className={classes['navbar-brand']} onClick={closeMenu}>
@@ -78,10 +77,18 @@ function App() {
               </li>
 
               <li className={classes['nav-item']}>
+                <Link to="/it-check" className={classes['nav-link']} onClick={closeMenu}>
+                  {t.nav.itCheck}
+                </Link>
+              </li>
+
+
+              <li className={classes['nav-item']}>
                 <Link to="/partners" className={classes['nav-link']} onClick={closeMenu}>
                   {t.nav.partners}
                 </Link>
               </li>
+
 
               <li className={classes['nav-item']}>
                 <Link to="/customers" className={classes['nav-link']} onClick={closeMenu}>
@@ -89,24 +96,29 @@ function App() {
                 </Link>
               </li>
 
-              <li className={classes['nav-item']}>
-                <Link to="/contact" className={classes['nav-link']} onClick={closeMenu}>
+              <li>
+                <Link to="/contact" className={classes['nav-cta']} onClick={closeMenu}>
                   {t.nav.contact}
                 </Link>
               </li>
+
             </ul>
 
-            <button
-              className={classes['language-switch']}
-              onClick={() => setLanguage((prev) => (prev === 'en' ? 'de' : 'en'))}
-              aria-label="Switch language"
-            >
-              <img
-                src={language === 'en' ? gbFlag : deFlag}
-                alt={language === 'en' ? 'English' : 'Deutsch'}
-              />
-              <span>{language === 'en' ? 'EN' : 'DE'}</span>
-            </button>
+            <div className={classes['nav-actions']}>
+              <button
+                className={classes['language-switch']}
+                onClick={() => setLanguage((prev) => (prev === 'en' ? 'de' : 'en'))}
+                aria-label="Switch language"
+              >
+                <img
+                  src={language === 'en' ? gbFlag : deFlag}
+                  alt={language === 'en' ? 'English' : 'Deutsch'}
+                />
+                <span>{language === 'en' ? 'EN' : 'DE'}</span>
+              </button>
+
+
+            </div>
           </div>
         </div>
       </nav>
@@ -114,9 +126,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home t={t} />} />
         <Route path="/solutions" element={<Solutions t={t} />} />
+        <Route path="/it-check" element={<ITCheck t={t} />} />
         <Route path="/partners" element={<Partners t={t} />} />
         <Route path="/customers" element={<Customers t={t} />} />
-        <Route path="/contact" element={<Contact t={t}/>} />
+        <Route path="/contact" element={<Contact t={t} />} />
         <Route path="/imprint" element={<div className={classes['placeholder-page']}>Imprint page</div>} />
         <Route path="/data-protection" element={<div className={classes['placeholder-page']}>Data protection page</div>} />
       </Routes>
@@ -135,3 +148,4 @@ function App() {
 }
 
 export default App;
+

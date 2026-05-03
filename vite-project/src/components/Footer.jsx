@@ -1,52 +1,63 @@
 import { Link } from 'react-router-dom';
 import classes from '../modules/Footer.module.scss';
 
-const Footer = () => {
+const Footer = ({ t }) => {
+  if (!t || !t.footer || !t.solutions) return null;
+
   return (
-    <footer className={classes.footer}>
+    <footer className={classes['footer']}>
+      <div className={classes['footer-glow']}></div>
+
+      <div className={classes['footer-top']}>
+        <div>
+          <span className={classes['eyebrow']}>Pipeline DV-Beratung GmbH</span>
+          <h2>{t.footer.aboutTitle}</h2>
+        </div>
+
+        <Link to="/contact" className={classes['footer-cta']}>
+          {t.nav.contact}
+        </Link>
+      </div>
+
       <div className={classes['footer-container']}>
-
-        <div className={classes.column}>
-          <h3>Via pipeline</h3>
-          <p>
-            Pipeline, a consulting firm specializing in networks and server installations,
-            was founded in 1993 by Roman Fäckl. We handle all tasks related to data
-            systems and networks, from installation to end-user support.
-          </p>
+        <div className={classes['column-large']}>
+          <p>{t.footer.aboutText}</p>
         </div>
 
-        <div className={classes.column}>
-          <h3>Solutions</h3>
+        <div className={classes['column']}>
+          <h3>{t.footer.solutionsTitle}</h3>
 
-          <Link to="/solutions/network-design">Network design and optimization</Link>
-          <Link to="/solutions/advice-service">Advice and service</Link>
-          <Link to="/solutions/hardware-software">Hardware and software sales</Link>
-          <Link to="/solutions/security">Security concepts</Link>
-          <Link to="/solutions/cloud">Cloud Solutions</Link>
+          <Link to="/solutions#network-design">{t.solutions.network}</Link>
+          <Link to="/solutions#advice-service">{t.solutions.advice}</Link>
+          <Link to="/solutions#hardware-software">{t.solutions.hardware}</Link>
+          <Link to="/solutions#security">{t.solutions.security}</Link>
+          <Link to="/solutions#cloud">{t.solutions.cloud}</Link>
+          <Link to="/solutions#leasing">{t.solutions.leasing}</Link>
         </div>
 
-        <div className={classes.column}>
-          <h3>Your contact</h3>
+        <div className={classes['column']}>
+          <h3>{t.footer.contactTitle}</h3>
+
           <p>
             Pipeline DV-Beratung GmbH<br />
             Aschauer Straße 30<br />
-            D-81549 Munich<br />
-            tel +49 89 6244740<br />
-            mail info@pipeline.gmbh
+            D-81549 München<br />
+            tel <a href="tel:+49896244740">+49 89 6244740</a><br />
+            fax +49 89 62447423<br />
+            mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a>
           </p>
         </div>
 
-        <div className={classes.column}>
-          <h3>Legal</h3>
+        <div className={classes['column']}>
+          <h3>{t.footer.legalTitle}</h3>
 
-          <Link to="/imprint">Imprint</Link>
-          <Link to="/data-protection">Data protection</Link>
-
-          <span className={classes.copy}>
-            © Pipeline DV-Beratung GmbH
-          </span>
+          <Link to="/imprint">{t.footer.imprint}</Link>
+          <Link to="/data-protection">{t.footer.dataProtection}</Link>
         </div>
+      </div>
 
+      <div className={classes['footer-bottom']}>
+        <span>{t.footer.copyright}</span>
       </div>
     </footer>
   );

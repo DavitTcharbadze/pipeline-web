@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion';
-import { Server, PackageCheck, MonitorSmartphone, Cloud } from 'lucide-react';
+import {
+  Server,
+  PackageCheck,
+  MonitorSmartphone,
+  Cloud,
+  ShieldCheck,
+  Network,
+  ArrowRight,
+} from 'lucide-react';
 import classes from '../modules/Home.module.scss';
 
 const Home = ({ t }) => {
@@ -29,29 +37,73 @@ const Home = ({ t }) => {
   return (
     <>
       <section className={classes['hero']}>
-        <div className={classes['hero-glow']}></div>
+        <div className={classes['hero-bg']}></div>
 
-        <motion.div
-          className={classes['hero-content']}
-          initial={{ opacity: 0, y: 26 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: 'easeOut' }}
-        >
-          <span className={classes['eyebrow']}>{t.hero.eyebrow}</span>
-          <h1>{t.hero.title}</h1>
-          <p>{t.hero.text}</p>
+        <div className={classes['hero-container']}>
+          <motion.div
+            className={classes['hero-content']}
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+          >
+            <span className={classes['eyebrow']}>{t.hero.eyebrow}</span>
 
-          <a href="#via-pipeline" className={classes['hero-link']}>
-            {t.hero.button}
-          </a>
-        </motion.div>
+            <h1>{t.hero.title}</h1>
+
+            <p>{t.hero.text}</p>
+
+            <a href="#via-pipeline" className={classes['hero-link']}>
+              {t.hero.button}
+              <ArrowRight size={18} />
+            </a>
+          </motion.div>
+
+          <motion.div
+            className={classes['hero-visual']}
+            initial={{ opacity: 0, x: 35 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <div className={classes['visual-card']}>
+              <div className={classes['visual-top']}>
+                <span>Pipeline Systems</span>
+                <strong>Online</strong>
+              </div>
+
+              <div className={classes['network-map']}>
+                <div className={classes['core-node']}>
+                  <Network size={28} />
+                </div>
+
+                <span className={classes['orbit-node']}></span>
+                <span className={classes['orbit-node']}></span>
+                <span className={classes['orbit-node']}></span>
+              </div>
+
+              <div className={classes['visual-stats']}>
+                <div>
+                  <ShieldCheck size={18} />
+                  <span>Security</span>
+                </div>
+
+                <div>
+                  <Cloud size={18} />
+                  <span>Cloud</span>
+                </div>
+
+                <div>
+                  <Server size={18} />
+                  <span>Support</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
-      <section className={classes['testimonial-strip']}>
-        <div className={classes['testimonial-inner']}>
-          <p>{t.testimonial.text}</p>
-          <span>{t.testimonial.author}</span>
-        </div>
+      <section className={classes['proof-strip']}>
+        <p>{t.testimonial.text}</p>
+        <span>{t.testimonial.author}</span>
       </section>
 
       <section id="via-pipeline" className={classes['home']}>
@@ -59,34 +111,36 @@ const Home = ({ t }) => {
 
         <div className={classes['container']}>
           <motion.div
+            className={classes['section-head']}
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className={classes['title']}>VIA PIPELINE</h2>
-            <p className={classes['intro']}>{t.about.text}</p>
+            <span>{t.info.label}</span>
+            <h2>{t.about.title}</h2>
+            <p>{t.about.text}</p>
           </motion.div>
 
-          <div className={classes['grid']}>
-            {cards.map((card) => {
+          <div className={classes['service-layout']}>
+            {cards.map((card, index) => {
               const Icon = card.icon;
 
               return (
                 <motion.div
                   key={card.title}
-                  className={classes['card']}
+                  className={classes['service-card']}
                   initial={{ opacity: 0, y: 26 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{
-                    scale: 1.025,
-                    boxShadow: '0 16px 30px rgba(11, 77, 162, 0.15)',
-                  }}
                   viewport={{ once: true, amount: 0.25 }}
-                  transition={{ duration: 0.1 }}
+                  transition={{ duration: 0.45, delay: index * 0.05 }}
                 >
-                  <div className={classes['card-icon']}>
-                    <Icon size={24} />
+                  <div className={classes['card-top']}>
+                    <div className={classes['card-icon']}>
+                      <Icon size={23} />
+                    </div>
+
+                    <span>{String(index + 1).padStart(2, '0')}</span>
                   </div>
 
                   <h3>{card.title}</h3>
@@ -103,87 +157,40 @@ const Home = ({ t }) => {
 
         <div className={classes['info-container']}>
           <motion.div
-            className={classes['info-panel']}
-            initial={{ opacity: 0, x: -35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55 }}
-          >
-            <div className={classes['panel-orbit']}>
-              <span className={classes['node']}></span>
-              <span className={classes['node']}></span>
-              <span className={classes['node']}></span>
-            </div>
-
-            <div className={classes['system-card']}>
-              <div className={classes['system-header']}>
-                <span>{t.panel.overview}</span>
-                <strong>{t.panel.status}</strong>
-              </div>
-
-              <div className={classes['system-row']}>
-                <span>{t.panel.network}</span>
-                <div><i></i></div>
-              </div>
-
-              <div className={classes['system-row']}>
-                <span>{t.panel.cloud}</span>
-                <div><i></i></div>
-              </div>
-
-              <div className={classes['system-row']}>
-                <span>{t.panel.support}</span>
-                <div><i></i></div>
-              </div>
-            </div>
-
-            <div className={classes['mini-grid']}>
-              <div className={classes['mini-card']}>
-                <span>01</span>
-                <h3>{t.panel.consultingTitle}</h3>
-                <p>{t.panel.consultingText}</p>
-              </div>
-
-              <div className={classes['mini-card']}>
-                <span>02</span>
-                <h3>{t.panel.securityTitle}</h3>
-                <p>{t.panel.securityText}</p>
-              </div>
-
-              <div className={classes['mini-card']}>
-                <span>03</span>
-                <h3>{t.panel.supportTitle}</h3>
-                <p>{t.panel.supportText}</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
             className={classes['info-content']}
-            initial={{ opacity: 0, x: 35 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.55 }}
           >
             <span className={classes['section-label']}>{t.info.label}</span>
             <h2>{t.info.title}</h2>
             <p>{t.info.text}</p>
+          </motion.div>
 
-            <div className={classes['info-points']}>
-              <div>
-                <strong>{t.info.points.complete.title}</strong>
-                <span>{t.info.points.complete.text}</span>
-              </div>
+          <motion.div
+            className={classes['process-grid']}
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className={classes['process-card']}>
+              <span>01</span>
+              <h3>{t.info.points.complete.title}</h3>
+              <p>{t.info.points.complete.text}</p>
+            </div>
 
-              <div>
-                <strong>{t.info.points.independent.title}</strong>
-                <span>{t.info.points.independent.text}</span>
-              </div>
+            <div className={classes['process-card']}>
+              <span>02</span>
+              <h3>{t.info.points.independent.title}</h3>
+              <p>{t.info.points.independent.text}</p>
+            </div>
 
-              <div>
-                <strong>{t.info.points.reliable.title}</strong>
-                <span>{t.info.points.reliable.text}</span>
-              </div>
+            <div className={classes['process-card']}>
+              <span>03</span>
+              <h3>{t.info.points.reliable.title}</h3>
+              <p>{t.info.points.reliable.text}</p>
             </div>
           </motion.div>
         </div>

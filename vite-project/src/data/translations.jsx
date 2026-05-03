@@ -223,6 +223,95 @@ export const translations = {
         'Further information and instructions on how to withdraw your consent can be found in the',
 
       send: 'Send',
+    },
+    itCheckPage: {
+      itCheck: 'IT Check',
+      hero: {
+        kicker: 'IT Check',
+        title: 'How secure is your IT really?',
+        subtitle: 'Free. 2 minutes. Clear recommendations for action.',
+      },
+      badge: 'Free · 2 minutes',
+      supportButton: 'Immediate support',
+      check: {
+        title: 'Free IT Health Check',
+        text: 'In 4 short questions you will find out how secure and future-proof your IT really is — including concrete recommendations for action.',
+        benefits: [
+          'Immediate risk scoring',
+          'Personal PDF report',
+          'Non-binding strategy meeting',
+        ],
+      },
+      questionLabel: 'Question',
+      ofLabel: 'of',
+      questions: [
+        {
+          question: 'Have all employees completed cybersecurity training?',
+          options: [
+            { label: 'Yes, annually', points: 25 },
+            { label: 'Some employees only', points: 15 },
+            { label: 'No', points: 5 },
+          ],
+        },
+        {
+          question: 'When were your backups last successfully tested?',
+          options: [
+            { label: 'In the last 30 days', points: 25 },
+            { label: '1–6 months ago', points: 15 },
+            { label: 'Over 6 months ago', points: 7 },
+            { label: "I don't know", points: 3 },
+          ],
+        },
+        {
+          question: 'How quickly could your company work again after a server failure?',
+          options: [
+            { label: 'Within 1 hour', points: 25 },
+            { label: 'Same business day', points: 18 },
+            { label: 'Several days', points: 8 },
+            { label: 'Unclear', points: 3 },
+          ],
+        },
+        {
+          question: 'Are your systems actively monitored?',
+          options: [
+            { label: 'Yes, around the clock', points: 25 },
+            { label: 'Only partly', points: 14 },
+            { label: 'No active monitoring', points: 5 },
+          ],
+        },
+      ],
+      results: {
+        scoreLabel: 'Your IT score',
+        outOf: 'out of 100',
+        good: 'Strong IT foundation',
+        medium: 'Need for optimization',
+        risk: 'High risk level',
+        text: 'Get your detailed report with recommendations now.',
+        button: 'Request report',
+        restart: 'Start again',
+      },
+      calculator: {
+        kicker: 'Downtime cost calculator',
+        title: 'How much does an IT outage cost you?',
+        subtitle: 'Calculate your risk cost in 5 seconds.',
+        employees: 'Employees in the company',
+        hours: 'Hours of downtime per incident',
+        resultLabel: 'Estimated loss per failure',
+        basis: 'Basis: €75/hour lost productivity per employee',
+      },
+      monitor: {
+        live: 'LIVE',
+        title: 'System Monitoring Demo',
+        subtitle: 'We monitor your systems around the clock.',
+        systems: [
+          { name: 'mail.kunde-a.local', status: 'ON-LINE', time: '12ms' },
+          { name: 'fileserver-01', status: 'ON-LINE', time: '4ms' },
+          { name: 'backup-azure', status: 'RUNNING', time: 'OK' },
+          { name: 'firewall edge', status: 'ON-LINE', time: '2ms' },
+          { name: 'VPN gateway', status: 'ON-LINE', time: '8ms' },
+        ],
+        note: '5 out of 247 monitored systems — all values simulated.',
+      },
     }
   },
 
@@ -450,6 +539,95 @@ export const translations = {
         'Weitere Informationen und Widerrufshinweise finden Sie in der',
 
       send: 'Senden',
+    },
+    itCheckPage: {
+      itCheck: 'IT Check',
+      hero: {
+        kicker: 'IT Check',
+        title: 'Wie sicher ist Ihre IT wirklich?',
+        subtitle: 'Kostenlos. 2 Minuten. Klare Handlungsempfehlungen.',
+      },
+      badge: 'Kostenlos · 2 Minuten',
+      supportButton: 'Soforthilfe',
+      check: {
+        title: 'Kostenloser IT Health Check',
+        text: 'In 4 kurzen Fragen erfahren Sie, wie sicher und zukunftsfähig Ihre IT wirklich ist — inklusive konkreter Handlungsempfehlungen.',
+        benefits: [
+          'Sofortige Risikobewertung',
+          'Persönlicher PDF-Bericht',
+          'Unverbindliches Strategiegespräch',
+        ],
+      },
+      questionLabel: 'Frage',
+      ofLabel: 'von',
+      questions: [
+        {
+          question: 'Haben alle Mitarbeitenden ein Cybersecurity-Training abgeschlossen?',
+          options: [
+            { label: 'Ja, jährlich', points: 25 },
+            { label: 'Nur teilweise', points: 15 },
+            { label: 'Nein', points: 5 },
+          ],
+        },
+        {
+          question: 'Wann wurden Ihre Backups zuletzt erfolgreich getestet?',
+          options: [
+            { label: 'In den letzten 30 Tagen', points: 25 },
+            { label: 'Vor 1–6 Monaten', points: 15 },
+            { label: 'Vor über 6 Monaten', points: 7 },
+            { label: 'Ich weiß es nicht', points: 3 },
+          ],
+        },
+        {
+          question: 'Wie schnell könnte Ihr Unternehmen nach einem Serverausfall wieder arbeiten?',
+          options: [
+            { label: 'Innerhalb von 1 Stunde', points: 25 },
+            { label: 'Am selben Arbeitstag', points: 18 },
+            { label: 'Mehrere Tage', points: 8 },
+            { label: 'Unklar', points: 3 },
+          ],
+        },
+        {
+          question: 'Werden Ihre Systeme aktiv überwacht?',
+          options: [
+            { label: 'Ja, rund um die Uhr', points: 25 },
+            { label: 'Nur teilweise', points: 14 },
+            { label: 'Keine aktive Überwachung', points: 5 },
+          ],
+        },
+      ],
+      results: {
+        scoreLabel: 'Ihr IT-Score',
+        outOf: 'von 100',
+        good: 'Starke IT-Grundlage',
+        medium: 'Optimierungsbedarf',
+        risk: 'Hohes Risikoniveau',
+        text: 'Fordern Sie jetzt Ihren detaillierten Bericht mit Empfehlungen an.',
+        button: 'Bericht anfordern',
+        restart: 'Neu starten',
+      },
+      calculator: {
+        kicker: 'Ausfallkosten-Rechner',
+        title: 'Wie viel kostet Sie ein IT-Ausfall?',
+        subtitle: 'Berechnen Sie Ihre Risikokosten in 5 Sekunden.',
+        employees: 'Mitarbeitende im Unternehmen',
+        hours: 'Stunden Ausfallzeit pro Vorfall',
+        resultLabel: 'Geschätzter Verlust pro Ausfall',
+        basis: 'Basis: 75 €/Stunde Produktivitätsverlust pro Mitarbeitendem',
+      },
+      monitor: {
+        live: 'LIVE',
+        title: 'System-Monitoring Demo',
+        subtitle: 'Wir überwachen Ihre Systeme rund um die Uhr.',
+        systems: [
+          { name: 'mail.kunde-a.local', status: 'ON-LINE', time: '12ms' },
+          { name: 'fileserver-01', status: 'ON-LINE', time: '4ms' },
+          { name: 'backup-azure', status: 'RUNNING', time: 'OK' },
+          { name: 'firewall edge', status: 'ON-LINE', time: '2ms' },
+          { name: 'VPN gateway', status: 'ON-LINE', time: '8ms' },
+        ],
+        note: '5 von 247 überwachten Systemen — alle Werte simuliert.',
+      },
     }
   },
 };
