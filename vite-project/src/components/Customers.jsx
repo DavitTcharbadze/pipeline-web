@@ -2,13 +2,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import classes from '../modules/Customers.module.scss';
 
-// auto-import images
 const customerImages = import.meta.glob('../assets/customers/*.{png,jpg,jpeg,svg,webp}', {
   eager: true,
   import: 'default',
 });
 
-// format name from filename
 const formatName = (path) => {
   const fileName = path.split('/').pop().split('.')[0];
 
@@ -17,19 +15,11 @@ const formatName = (path) => {
     .replace(/\b\w/g, (l) => l.toUpperCase());
 };
 
-// existing image customers
 const imageCustomers = Object.entries(customerImages).map(([path, img]) => ({
   name: formatName(path),
   img,
 }));
-
-// 👉 manual customers WITHOUT logos
-const manualCustomers = [
-  { name: 'TECVIA GmbH', img: null },
-];
-
-// combine both
-const customers = [...imageCustomers, ...manualCustomers];
+const customers = [...imageCustomers];
 
 const Customers = ({ t }) => {
   const data = t.customersPage;
@@ -69,7 +59,6 @@ const Customers = ({ t }) => {
             >
               <div className={classes['logo-wrapper']}>
 
-                {/* ✅ image OR fallback */}
                 {customer.img ? (
                   <img src={customer.img} alt={customer.name} />
                 ) : (
