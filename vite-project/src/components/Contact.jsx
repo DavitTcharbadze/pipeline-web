@@ -45,7 +45,6 @@ const Contact = ({ t }) => {
     if (!form.consent) newErrors.consent = true;
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
@@ -60,17 +59,24 @@ const Contact = ({ t }) => {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim(),
+        }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        console.error(data);
+        throw new Error(data.error || 'Failed to send message');
       }
 
       setStatus('success');
+      setErrors({});
 
       setForm({
         name: '',
@@ -79,7 +85,9 @@ const Contact = ({ t }) => {
         message: '',
         consent: false,
       });
+
     } catch (error) {
+      console.error(error);
       setStatus('error');
     } finally {
       setIsSending(false);
@@ -102,26 +110,22 @@ const Contact = ({ t }) => {
             <p>Aschauer Straße 30</p>
             <p>D-81549 München</p>
 
-            <p>
-              tel <a href="tel:+49896244740">+49 89 6244740</a>
-            </p>
+            <p>tel <a href="tel:+49896244740">+49 89 6244740</a></p>
             <p>fax +49 89 62447423</p>
-            <p>
-              mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a>
-            </p>
+            <p>mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a></p>
           </div>
 
           <form className={classes['form']} onSubmit={handleSubmit}>
             <label>{t.contact.name}</label>
-            <input name="name" value={form.name} onChange={handleChange} />
+            <input type="text" name="name" value={form.name} onChange={handleChange} />
             {errors.name && <span className={classes['error']}>{t.contact.required}</span>}
 
             <label>{t.contact.email}</label>
-            <input name="email" value={form.email} onChange={handleChange} />
+            <input type="email" name="email" value={form.email} onChange={handleChange} />
             {errors.email && <span className={classes['error']}>{t.contact.required}</span>}
 
             <label>{t.contact.phone}</label>
-            <input name="phone" value={form.phone} onChange={handleChange} />
+            <input type="text" name="phone" value={form.phone} onChange={handleChange} />
             {errors.phone && <span className={classes['error']}>{t.contact.required}</span>}
 
             <label>{t.contact.message}</label>
@@ -130,7 +134,7 @@ const Contact = ({ t }) => {
               rows="6"
               value={form.message}
               onChange={handleChange}
-            ></textarea>
+            />
             {errors.message && <span className={classes['error']}>{t.contact.required}</span>}
 
             <div className={classes['checkbox']}>
@@ -174,7 +178,7 @@ const Contact = ({ t }) => {
           src="https://www.google.com/maps?q=Aschauer+Str.+30,+Munich&output=embed"
           loading="lazy"
           title="Pipeline DV-Beratung GmbH location"
-        ></iframe>
+        />
       </div>
     </section>
   );
