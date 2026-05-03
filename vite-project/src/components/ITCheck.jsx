@@ -5,7 +5,9 @@ import {
   CheckCircle2,
   ChevronRight,
   Mail,
+  PhoneCall,
   Server,
+  X,
 } from 'lucide-react';
 import classes from '../modules/ITCheck.module.scss';
 
@@ -16,6 +18,7 @@ const ITCheck = ({ t }) => {
   const [answers, setAnswers] = useState([]);
   const [employees, setEmployees] = useState(50);
   const [hours, setHours] = useState(2);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   const estimatedLoss = employees * hours * 75;
   const isFinished = step >= data.questions.length;
@@ -39,6 +42,7 @@ const ITCheck = ({ t }) => {
   const handleRestart = () => {
     setStep(0);
     setAnswers([]);
+    setContactModalOpen(false);
   };
 
   const currentQuestion = data.questions[step];
@@ -118,10 +122,14 @@ const ITCheck = ({ t }) => {
                 <h3>{resultLabel}</h3>
                 <p>{data.results.text}</p>
 
-                <a href="/contact" className={classes['result-button']}>
-                  {data.results.button}
-                  <Mail size={18} />
-                </a>
+                <button
+                  type="button"
+                  className={classes['result-button']}
+                  onClick={() => setContactModalOpen(true)}
+                >
+                  Talk to Pipeline
+                  <ChevronRight size={18} />
+                </button>
 
                 <button className={classes['restart']} onClick={handleRestart}>
                   {data.results.restart}
@@ -200,6 +208,48 @@ const ITCheck = ({ t }) => {
           </div>
         </div>
       </section>
+
+      {contactModalOpen && (
+        <div className={classes['modal-overlay']} onClick={() => setContactModalOpen(false)}>
+          <div className={classes['contact-modal']} onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className={classes['modal-close']}
+              onClick={() => setContactModalOpen(false)}
+              aria-label="Close contact options"
+            >
+              <X size={20} />
+            </button>
+
+            <span className={classes['modal-kicker']}>Next step</span>
+            <h3>Speak with Pipeline</h3>
+            <p>
+              Send your result by email or call directly. No long form, no waiting room.
+            </p>
+
+            <div className={classes['modal-actions']}>
+              <a href="tel:+49896244740" className={classes['modal-action']}>
+                <PhoneCall size={19} />
+                <div>
+                  <strong>Call now</strong>
+                  <span>+49 89 6244740</span>
+                </div>
+              </a>
+
+              <a
+                href={`mailto:info@pipeline.gmbh?subject=IT Check Result&body=Hello Pipeline,%0D%0A%0D%0AMy IT Check score is ${score}/100.%0D%0A%0D%0APlease contact me about possible next steps.`}
+                className={classes['modal-action']}
+              >
+                <Mail size={19} />
+                <div>
+                  <strong>Email Pipeline</strong>
+                  <span>info@pipeline.gmbh</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 };

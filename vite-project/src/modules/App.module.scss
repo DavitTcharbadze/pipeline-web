@@ -41,12 +41,21 @@
 }
 
 .logo {
-  height: 92px;
+  height: 78px;
   width: auto;
   object-fit: contain;
+  transform: scale(1.15);
+  transform-origin: left center;
   filter:
-    drop-shadow(0 0 10px rgba(20, 120, 200, 0.42))
-    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 0 12px rgba(20, 140, 255, 0.62))
+    drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+  transition: filter 0.25s ease;
+}
+
+.logo:hover {
+  filter:
+    drop-shadow(0 0 18px rgba(20, 140, 255, 0.78))
+    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.48));
 }
 
 .navbar-collapse {
