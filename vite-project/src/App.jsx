@@ -96,15 +96,13 @@ function App() {
                 </Link>
               </li>
 
-              <li>
-                <Link to="/contact" className={classes['nav-cta']} onClick={closeMenu}>
-                  {t.nav.contact}
-                </Link>
-              </li>
-
             </ul>
 
             <div className={classes['nav-actions']}>
+              <Link to="/contact" className={classes['nav-cta']} onClick={closeMenu}>
+                {t.nav.contact}
+              </Link>
+
               <button
                 className={classes['language-switch']}
                 onClick={() => setLanguage((prev) => (prev === 'en' ? 'de' : 'en'))}
@@ -116,8 +114,6 @@ function App() {
                 />
                 <span>{language === 'en' ? 'EN' : 'DE'}</span>
               </button>
-
-
             </div>
           </div>
         </div>

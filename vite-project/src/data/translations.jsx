@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: 'Home',
       solutions: 'Solutions',
+      itCheck: 'IT Check',
       partners: 'Partners',
       customers: 'Customers',
       contact: 'Contact',
@@ -225,7 +226,6 @@ export const translations = {
       send: 'Send',
     },
     itCheckPage: {
-      itCheck: 'IT Check',
       hero: {
         kicker: 'IT Check',
         title: 'How secure is your IT really?',
@@ -319,6 +319,7 @@ export const translations = {
     nav: {
       home: 'Home',
       solutions: 'Lösungen',
+      itCheck: 'IT Check',
       partners: 'Partner',
       customers: 'Kunden',
       contact: 'Kontakt',
@@ -541,7 +542,6 @@ export const translations = {
       send: 'Senden',
     },
     itCheckPage: {
-      itCheck: 'IT Check',
       hero: {
         kicker: 'IT Check',
         title: 'Wie sicher ist Ihre IT wirklich?',

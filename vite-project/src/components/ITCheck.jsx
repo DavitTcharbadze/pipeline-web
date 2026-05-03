@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Mail,
-  PhoneCall,
   Server,
 } from 'lucide-react';
 import classes from '../modules/ITCheck.module.scss';
@@ -201,11 +200,6 @@ const ITCheck = ({ t }) => {
           </div>
         </div>
       </section>
-
-      <a href="/contact" className={classes['floating-support']}>
-        <PhoneCall size={19} />
-        {data.supportButton}
-      </a>
     </main>
   );
 };
