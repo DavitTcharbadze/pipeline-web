@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PhoneCall } from 'lucide-react';
 import classes from '../modules/Contact.module.scss';
 
 const Contact = ({ t }) => {
@@ -85,7 +86,6 @@ const Contact = ({ t }) => {
         message: '',
         consent: false,
       });
-
     } catch (error) {
       console.error(error);
       setStatus('error');
@@ -113,6 +113,11 @@ const Contact = ({ t }) => {
             <p>tel <a href="tel:+49896244740">+49 89 6244740</a></p>
             <p>fax +49 89 62447423</p>
             <p>mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a></p>
+
+            <a href="tel:+49896244740" className={classes['phone-button']}>
+              <PhoneCall size={18} />
+              Call +49 89 6244740
+            </a>
           </div>
 
           <form className={classes['form']} onSubmit={handleSubmit}>

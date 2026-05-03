@@ -23,7 +23,7 @@
 
 .navbar-container {
   max-width: 1320px;
-  min-height: 102px;
+  min-height: 106px;
   margin: 0 auto;
   padding: 0 2.5rem;
   display: flex;
@@ -37,12 +37,16 @@
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  padding: 8px 0;
 }
 
 .logo {
-  height: 78px;
+  height: 92px;
   width: auto;
   object-fit: contain;
+  filter:
+    drop-shadow(0 0 10px rgba(20, 120, 200, 0.42))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.45));
 }
 
 .navbar-collapse {
@@ -240,6 +244,75 @@
   margin: 0 auto;
 }
 
+.floating-call {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(124, 199, 255, 0.28);
+  border-radius: 14px;
+  background: #0b4da2;
+  color: white;
+  cursor: pointer;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(11, 77, 162, 0.26);
+  transition: transform 0.25s ease, background 0.2s ease, bottom 0.25s ease;
+
+  &:hover {
+    background: #1687c9;
+    transform: translateY(-2px);
+  }
+}
+
+.call-shifted {
+  bottom: 82px;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(124, 199, 255, 0.28);
+  border-radius: 14px;
+  background: #0b4da2;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+  .floating-call {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .call-shifted {
+    bottom: 76px;
+  }
+
+  .back-to-top {
+    right: 18px;
+    bottom: 18px;
+  }
+}
 @media (max-width: 1180px) {
   .navbar-container {
     padding: 0 1.5rem;
@@ -267,16 +340,20 @@
   .language-switch {
     height: 44px;
   }
+
+  .logo {
+    height: 84px;
+  }
 }
 
 @media (max-width: 992px) {
   .navbar-container {
-    min-height: 82px;
+    min-height: 86px;
     padding: 0 1.25rem;
   }
 
   .logo {
-    height: 68px;
+    height: 76px;
   }
 
   .navbar-toggler {

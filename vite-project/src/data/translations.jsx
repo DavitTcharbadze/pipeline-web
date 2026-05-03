@@ -136,9 +136,19 @@ export const translations = {
       },
     },
 
-    testimonial: {
-      text: '“The support of our IT systems has always been perfect and first-class throughout the many years of cooperation, during which very different tasks often had to be solved.”',
-      author: 'Lewang Architects',
+    proofStrip: {
+      stable: {
+        title: 'Stable systems',
+        text: 'Built to reduce interruptions',
+      },
+      security: {
+        title: 'Security first',
+        text: 'Protection for data and access',
+      },
+      support: {
+        title: 'Fast support',
+        text: 'Remote and on-site assistance',
+      },
     },
 
     info: {
@@ -452,9 +462,19 @@ export const translations = {
       },
     },
 
-    testimonial: {
-      text: '„Die Betreuung unserer IT Systeme ist über die langen Jahre der Zusammenarbeit, in der oft sehr unterschiedlichen Aufgaben zu lösen waren, immer perfekt und erstklassig durchgeführt worden.“',
-      author: 'Lewang Architekten',
+    proofStrip: {
+      stable: {
+        title: 'Stabile Systeme',
+        text: 'Weniger Unterbrechungen im Alltag',
+      },
+      security: {
+        title: 'Sicherheit zuerst',
+        text: 'Schutz für Daten und Zugänge',
+      },
+      support: {
+        title: 'Schneller Support',
+        text: 'Remote und vor Ort erreichbar',
+      },
     },
 
     info: {

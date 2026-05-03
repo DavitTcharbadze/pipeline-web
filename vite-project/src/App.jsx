@@ -1,5 +1,6 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { PhoneCall } from 'lucide-react';
 import { translations } from './data/translations';
 
 import classes from './modules/App.module.scss';
@@ -21,7 +22,13 @@ function App() {
   const [showTop, setShowTop] = useState(false);
   const [language, setLanguage] = useState('en');
 
+  const location = useLocation();
   const t = translations[language];
+
+  const hideCallButton =
+    location.pathname === '/contact' ||
+    location.pathname === '/partners' ||
+    location.pathname === '/customers';
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -82,20 +89,17 @@ function App() {
                 </Link>
               </li>
 
-
               <li className={classes['nav-item']}>
                 <Link to="/partners" className={classes['nav-link']} onClick={closeMenu}>
                   {t.nav.partners}
                 </Link>
               </li>
 
-
               <li className={classes['nav-item']}>
                 <Link to="/customers" className={classes['nav-link']} onClick={closeMenu}>
                   {t.nav.customers}
                 </Link>
               </li>
-
             </ul>
 
             <div className={classes['nav-actions']}>
@@ -130,6 +134,16 @@ function App() {
         <Route path="/data-protection" element={<div className={classes['placeholder-page']}>Data protection page</div>} />
       </Routes>
 
+      {!hideCallButton && (
+        <a
+          href="tel:+49896244740"
+          className={`${classes['floating-call']} ${showTop ? classes['call-shifted'] : ''}`}
+          aria-label="Call Pipeline"
+        >
+          <PhoneCall size={19} />
+        </a>
+      )}
+
       <button
         className={`${classes['back-to-top']} ${showTop ? classes['show'] : ''}`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -144,4 +158,3 @@ function App() {
 }
 
 export default App;
-

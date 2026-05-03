@@ -7,6 +7,9 @@ import {
   ShieldCheck,
   Network,
   ArrowRight,
+  Activity,
+  LockKeyhole,
+  Clock3,
 } from 'lucide-react';
 import classes from '../modules/Home.module.scss';
 
@@ -47,9 +50,7 @@ const Home = ({ t }) => {
             transition={{ duration: 0.65, ease: 'easeOut' }}
           >
             <span className={classes['eyebrow']}>{t.hero.eyebrow}</span>
-
             <h1>{t.hero.title}</h1>
-
             <p>{t.hero.text}</p>
 
             <a href="#via-pipeline" className={classes['hero-link']}>
@@ -102,8 +103,35 @@ const Home = ({ t }) => {
       </section>
 
       <section className={classes['proof-strip']}>
-        <p>{t.testimonial.text}</p>
-        <span>{t.testimonial.author}</span>
+        <div className={classes['proof-grid']}>
+          <div className={classes['proof-item']}>
+            <Activity size={20} />
+            <div>
+              <strong>{t.proofStrip.stable.title}</strong>
+              <span>{t.proofStrip.stable.text}</span>
+            </div>
+          </div>
+
+          <div className={classes['proof-divider']}></div>
+
+          <div className={classes['proof-item']}>
+            <LockKeyhole size={20} />
+            <div>
+              <strong>{t.proofStrip.security.title}</strong>
+              <span>{t.proofStrip.security.text}</span>
+            </div>
+          </div>
+
+          <div className={classes['proof-divider']}></div>
+
+          <div className={classes['proof-item']}>
+            <Clock3 size={20} />
+            <div>
+              <strong>{t.proofStrip.support.title}</strong>
+              <span>{t.proofStrip.support.text}</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="via-pipeline" className={classes['home']}>

@@ -89,9 +89,8 @@ const Solutions = ({ t }) => {
               <motion.div
                 id={sectionIds[index]}
                 key={sectionIds[index]}
-                className={`${classes['section']} ${
-                  activeSection === sectionIds[index] ? classes['active-section'] : ''
-                }`}
+                className={`${classes['section']} ${activeSection === sectionIds[index] ? classes['active-section'] : ''
+                  }`}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.18 }}
@@ -120,9 +119,8 @@ const Solutions = ({ t }) => {
 
       <motion.section
         id="pipeline-support"
-        className={`${classes['support-section']} ${
-          activeSection === 'pipeline-support' ? classes['active-support'] : ''
-        }`}
+        className={`${classes['support-section']} ${activeSection === 'pipeline-support' ? classes['active-support'] : ''
+          }`}
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -141,11 +139,16 @@ const Solutions = ({ t }) => {
           <div className={classes['support-downloads']}>
             <p>{data.support.downloadText}</p>
 
-            <a href="#" className={classes['download-button']}>
+            <a href="https://download.teamviewer.com/download/TeamViewerQS.dmg"
+              target="_blank"
+              rel="noopener noreferrer" className={classes['download-button']}>
               → {data.support.windows}
             </a>
 
-            <a href="#" className={classes['download-button']}>
+            <a href="https://download.teamviewer.com/download/TeamViewerQS.exe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes['download-button']}>
               → {data.support.mac}
             </a>
           </div>
