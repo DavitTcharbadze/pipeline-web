@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 
+// eslint-disable-next-line no-undef
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
@@ -11,12 +12,12 @@ export default async function handler(req, res) {
     const { name, email, phone, message } = req.body;
 
     await resend.emails.send({
-      from: "onboarding@resend.dev", // later change to your domain
+      from: "onboarding@resend.dev",
       to: "akotcharbadze@gmail.com",
 
-      reply_to: email, // 👈 THIS is the key change
+      replyTo: email,
 
-      subject: `New message from ${name} (${email})`, // optional but helpful
+      subject: `New message from ${name} (${email})`,
 
       html: `
         <h2>Neue Nachricht</h2>
@@ -30,7 +31,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ message: "Email sent!" });
 
   } catch (error) {
-    console.error(error); // 👈 add this for debugging
+    console.error(error);
     return res.status(500).json({ error: "Failed to send email" });
   }
 }
