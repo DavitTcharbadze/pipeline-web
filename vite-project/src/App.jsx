@@ -20,7 +20,18 @@ import ScrollToTop from './components/ScrollToTop';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
-  const [language, setLanguage] = useState('de');
+  const [language, setLanguage] = useState(() => {
+    const saved = localStorage.getItem('lang');
+    if (saved) return saved;
+
+    // optional: detect browser language on first visit
+    const browserLang = navigator.language.toLowerCase();
+    return browserLang.startsWith('de') ? 'de' : 'en';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('lang', language);
+  }, [language]);
 
   const location = useLocation();
   const t = translations[language];

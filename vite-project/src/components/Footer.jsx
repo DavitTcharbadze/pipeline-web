@@ -40,8 +40,17 @@ const Footer = ({ t }) => {
 
           <p>
             Pipeline DV-Beratung GmbH<br />
-            Aschauer Straße 30<br />
-            D-81549 München<br />
+
+            <a
+              href="https://www.google.com/maps/place/Aschauer+Str.+30,+81549+M%C3%BCnchen,+Germany/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Aschauer Straße 30<br />
+              D-81549 München
+            </a>
+            <br />
+
             tel <a href="tel:+49896244740">+49 89 6244740</a><br />
             fax +49 89 62447423<br />
             mail <a href="mailto:info@pipeline.gmbh">info@pipeline.gmbh</a>
