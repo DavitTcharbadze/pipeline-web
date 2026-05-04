@@ -4,7 +4,7 @@ import { PhoneCall } from 'lucide-react';
 import { translations } from './data/translations';
 
 import classes from './modules/App.module.scss';
-import logo from './assets/logo.png';
+import logo from './assets/logo.svg';
 import gbFlag from './assets/flags/gb.svg';
 import deFlag from './assets/flags/de.svg';
 
