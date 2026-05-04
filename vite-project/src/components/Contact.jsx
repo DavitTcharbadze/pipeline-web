@@ -114,10 +114,14 @@ const Contact = ({ t }) => {
 
               <div className={classes['contact-line']}>
                 <MapPin size={17} />
-                <div>
+                <a
+                  href="https://www.google.com/maps/place/Aschauer+Str.+30,+81549+M%C3%BCnchen,+Germany/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <p>Aschauer Straße 30</p>
                   <p>D-81549 München</p>
-                </div>
+                </a>
               </div>
 
               <p>tel <a href="tel:+49896244740">+49 89 6244740</a></p>
