@@ -141,13 +141,13 @@ const Solutions = ({ t }) => {
           <div className={classes['support-downloads']}>
             <p>{data.support.downloadText}</p>
 
-            <a href="https://download.teamviewer.com/download/TeamViewerQS.dmg"
+            <a href="https://download.teamviewer.com/download/TeamViewerQS.exe"
               target="_blank"
               rel="noopener noreferrer" className={classes['download-button']}>
               → {data.support.windows}
             </a>
 
-            <a href="https://download.teamviewer.com/download/TeamViewerQS.exe"
+            <a href="https://download.teamviewer.com/download/TeamViewerQS.dmg"
               target="_blank"
               rel="noopener noreferrer"
               className={classes['download-button']}>
